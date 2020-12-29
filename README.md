@@ -28,3 +28,16 @@ $im->destroy();
 
 
 ```
+
+# Delete old file before update 
+
+```php
+$path = './uploads/MasterMarketing/';
+
+$wheref = array('sno'=>$postData['cat_id']);
+$image =  $this->Common_Model->select_data('masterdata',' ',$wheref);
+ 
+if(file_exists($path.$image[0]->filename))	{
+	@unlink($path.$image[0]->filename);
+ }
+```
